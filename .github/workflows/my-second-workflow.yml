@@ -16,6 +16,7 @@ jobs:
         run: echo "Testing code for model"
 
   second-job:
+    needs: first-job
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
@@ -24,5 +25,5 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: 3.12
-      - name: Deply Code
+      - name: Deploy Code
         run: echo "Deploy code for model to AWS"
